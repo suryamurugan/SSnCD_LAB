@@ -9,51 +9,60 @@ char input[10];
 int top=-1;
 char stack[25];
 char curp[20];
+
 push(char item)
 {
         stack[++top]=item;
+
 }
 pop()
 {
         top=top-1;
 }
+
 display()
 {
         int i;
         for(i=top;i>=0;i--)
         printf("%c",stack[i]);
 }
+
 numr(char c)
 {
-switch(c)
-{
-        case 'A': return 1;
-        case 'B': return 2;
-        case 'a': return 1;
-        case 'b': return 2;
-        case '@': return 3;
+        switch(c)
+        {
+                case 'A': return 1;
+                case 'B': return 2;
+                case 'a': return 1;
+                case 'b': return 2;
+                case '@': return 3;
+        }
+        return(1);
 }
-return(1);
-}
+
 void main()
 {
         char c;
         int i,j,k,n;
         for(i=0;i<3;i++)
-        for(j=0;j<4;j++)
-        strcpy(table[i][j],"e");
+                for(j=0;j<4;j++)
+                strcpy(table[i][j],"e");
+
         printf("\n Grammar:\n");
+
         for(i=0;i<3;i++)
                 printf("%s\n",prod[i]);
+
         printf("\nfirst= {%s,%s,%s}",first[0],first[1],first[2]);
         printf("\nfollow ={%s %s}\n",follow[0],follow[1]);
         printf("\nPredictive parsing table for the given grammar\n");
         strcpy(table[0][0]," ");
         strcpy(table[0][1],"a");
- strcpy(table[0][2],"b");
+        strcpy(table[0][2],"b");
         strcpy(table[0][3],"$");
         strcpy(table[1][0],"A");
         strcpy(table[2][0],"B");
+        
         for(i=0;i<3;i++)
         {
                 k=strlen(first[i]);
@@ -63,7 +72,9 @@ void main()
                         else
                                 strcpy(table[numr(prod[i][0])][numr(follow[i][j])],prod[i]);
         }
+        
         printf("\n-------------------------------------------------------\n");
+        
         for(i=0;i<3;i++)
                 for(j=0;j<4;j++)
                 {
@@ -103,7 +114,7 @@ void main()
                 else
                 {
                      if(stack[top]>=65 && stack[top]<92)
-										{
+			{
                                 strcpy(curp,table[numr(stack[top])][numr(input[i])]);
                                 if(!(strcmp(curp,"e")))
                                 {
@@ -120,7 +131,7 @@ void main()
                                                 pop();
                                                 n=strlen(curp);
                                                 for(j=n-1;j>=3;j--)
-                                                push(curp[j]);
+                                                        push(curp[j]);
                                         }
                                 }
                         }

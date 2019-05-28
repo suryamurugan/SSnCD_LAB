@@ -1,6 +1,7 @@
 %{
 	#include<stdio.h>
-	#include "y.tab.h"
+	#include "y.tab.h"int|main|printf|for {printf("\n keyword is %s\n",yytext);
+
 	extern int yylval;
 %}
 %%

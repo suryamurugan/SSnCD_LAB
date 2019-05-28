@@ -20,22 +20,22 @@ yywrap()
 }
 main()
 {
-printf("Enter the expression:");
-yylex();
-if((flag!=0)||(bc!=0)||(id-op)!=1)
-{
-	printf("Invalid Expression!!\n");
-}
-else
-{
-	printf("Valid expression\n");
-printf("List of operators are:\n");
-for(x=0;x<i;x++)
-	printf("%c\t",opa[x]);
-printf("\nNo of operators are:%d\n",i);
-printf("List of identifiers are:");
-for(x=0;x<j;x++)
-	printf("%d",ida[x]);
-printf("\nNo of identifiers are:%d\n",j);
-}
+    printf("Enter the expression:");
+    yylex();
+    if((flag!=0)||(bc!=0)||(id-op)!=1)
+    {
+    	printf("Invalid Expression!!\n");
+    }
+    else
+    {
+    	printf("Valid expression\n");
+    printf("List of operators are:\n");
+    for(x=0;x<i;x++)
+    	printf("%c\t",opa[x]);
+    printf("\nNo of operators are:%d\n",i);
+    printf("List of identifiers are:");
+    for(x=0;x<j;x++)
+    	printf("%d",ida[x]);
+    printf("\nNo of identifiers are:%d\n",j);
+    }
 }
