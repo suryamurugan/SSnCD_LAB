@@ -3,10 +3,13 @@
 #include<string.h>
 //#include<process.h>
 
-char stk[20],input[20],act[20];
+
 
 void main()
 {
+	char stk[20];
+char input[20];
+char act[20];
 	int i=0,k=0,c;
 	strcpy(stk,"$");
 	printf("The grammer is E->E+T|T\nT->T*F|F\nF->(E)|id\n");

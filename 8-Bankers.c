@@ -60,14 +60,18 @@ do
                             else
                             p[i].need[j]=p[i].max[j]-p[i].all[j]; 
                             avail[j]=avail[j]-p[i].all[j]; 
-                           } 
+                        } 
                     } 
                 break; 
+                
                 case 2: 
+
                 violationcheck=0; 
                 waitcheck=0; 
+
                 printf("\n\n\t Requesting process id :"); 
                 scanf("%d",&pid); 
+                
                 for(j=0;j<nor;j++) 
                 { 
                     printf("\n\n\t Number of Request for resource %d :",j); 
@@ -103,6 +107,9 @@ do
                         printf("\n\n\t Request Committed "); 
                 } 
                 break; 
+
+
+
                 case 3: 
                 if(safeseq()==1) 
                     printf("\n\n\t The System is in safe state "); 
@@ -138,16 +145,17 @@ do
 
 int safeseq() 
 { 
-    int tj,tk,i,j,k;
+    int tj,tk,i,j,k; 
     ss=0;
     for(j=0;j<nor;j++) 
         work[j]=avail[j]; 
     for(j=0;j<n;j++) 
         p[j].finished=0; 
+
     for(tk=0;tk<nor;tk++) 
       { 
-    for(j=0;j<n;j++) 
-         { 
+        for(j=0;j<n;j++) 
+        { 
             if(p[j].finished==0) 
             { 
                 check1=0; 
@@ -166,12 +174,15 @@ int safeseq()
                     } 
             } 
           }     
-      } 
+      }
+
 check2=0; 
 for(i=0;i<n;i++) 
-if(p[i].finished==1) 
-check2++; 
+    if(p[i].finished==1) 
+    check2++; 
+
 printf("\n\n\t"); 
+
 if(check2>=n) 
     { 
         printf("\n\n\t The system is in safe state"); 
